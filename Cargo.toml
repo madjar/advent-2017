@@ -1,0 +1,8 @@
+[package]
+name = "advent-2017"
+version = "0.1.0"
+authors = ["Georges Dubus <georges.dubus@soundcloud.com>"]
+
+[dependencies]
+
+find_folder = "0.3.0"
