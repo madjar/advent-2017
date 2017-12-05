@@ -1,6 +1,13 @@
-pub fn doit(input: String) {
+use std::fs::File;
+use std::io::BufReader;
+use std::io::prelude::*;
+
+
+pub fn doit(mut input: BufReader<File>) {
     let mut sum = 0;
-    let list: Vec<u32> = input
+    let mut s = String::new();
+    input.read_to_string(&mut s).unwrap();
+    let list: Vec<u32> = s
         .trim()
         .chars()
         .map(|c| c.to_digit(10).unwrap())

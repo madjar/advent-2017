@@ -1,13 +1,18 @@
-pub fn doit(input: String) {
+use std::io::prelude::*;
+use std::fs::File;
+use std::io::BufReader;
+
+
+pub fn doit(input: BufReader<File>) {
+    let lines: Vec<String> = input.lines().map(|l| l.unwrap()).collect();
     println!(
         "Day 2, part 1: {}",
-        input.lines().map(|l| width(parse_line(l))).sum::<i64>()
+        lines.iter().map(|l| width(parse_line(&l))).sum::<i64>()
     );
     println!(
         "Day 2, part 2: {}",
-        input
-            .lines()
-            .map(|l| divisible_rest(parse_line(l)))
+        lines.iter()
+            .map(|l| divisible_rest(parse_line(&l)))
             .sum::<i64>()
     );
 }

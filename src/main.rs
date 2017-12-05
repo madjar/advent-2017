@@ -6,7 +6,7 @@ mod day04;
 mod day05;
 
 use std::fs::File;
-use std::io::prelude::*;
+use std::io::BufReader;
 use find_folder::Search;
 
 fn main() {
@@ -22,17 +22,12 @@ fn main() {
 }
 
 
-fn get_input(file: &str) -> String {
+fn get_input(file: &str) -> BufReader<File> {
     let mut path = Search::Parents(1)
         .for_folder("inputs")
         .expect("Could not find folder 'inputs'");
     path.push(file);
-    let mut f = File::open(path).expect("file not found");
-    let mut contents = String::new();
-    f.read_to_string(&mut contents)
-        .expect("something went wrong reading the file");
-    return contents;
-    // TODO trim here
-    // TODO BufReader rather than read to file?
+    let f = File::open(path).expect("file not found");
+    return BufReader::new(f);
     // TODO bench mmap?
 }
