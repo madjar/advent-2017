@@ -26,7 +26,10 @@ pub fn doit() {
                 x += vx;
                 y += vy;
                 // Cell value computation
-                let count = neighbours(x, y).iter().map(|nei| map.get(nei).map(|x| *x).unwrap_or(0)).sum();
+                let count = neighbours(x, y)
+                    .iter()
+                    .map(|nei| map.get(nei).map(|x| *x).unwrap_or(0))
+                    .sum();
 
                 record(x, y, count, &mut map);
                 if count >= INPUT {
@@ -43,5 +46,14 @@ pub fn doit() {
 }
 
 fn neighbours(x: i64, y: i64) -> Vec<(i64, i64)> {
-    vec![(x+1, y), (x+1, y+1), (x, y+1), (x-1, y+1), (x-1, y), (x-1, y-1), (x, y-1), (x+1, y-1)]
+    vec![
+        (x + 1, y),
+        (x + 1, y + 1),
+        (x, y + 1),
+        (x - 1, y + 1),
+        (x - 1, y),
+        (x - 1, y - 1),
+        (x, y - 1),
+        (x + 1, y - 1),
+    ]
 }
