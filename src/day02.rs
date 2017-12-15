@@ -11,7 +11,8 @@ pub fn doit(input: BufReader<File>) {
     );
     println!(
         "Day 2, part 2: {}",
-        lines.iter()
+        lines
+            .iter()
             .map(|l| divisible_rest(parse_line(&l)))
             .sum::<i64>()
     );

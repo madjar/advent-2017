@@ -6,3 +6,8 @@ authors = ["Georges Dubus <georges.dubus@soundcloud.com>"]
 [dependencies]
 
 find_folder = "0.3.0"
+#nom = "^3.2"
+
+[dependencies.nom]
+version = "^3.2"
+features = ["verbose-errors"]

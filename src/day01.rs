@@ -7,11 +7,7 @@ pub fn doit(mut input: BufReader<File>) {
     let mut sum = 0;
     let mut s = String::new();
     input.read_to_string(&mut s).unwrap();
-    let list: Vec<u32> = s
-        .trim()
-        .chars()
-        .map(|c| c.to_digit(10).unwrap())
-        .collect();
+    let list: Vec<u32> = s.trim().chars().map(|c| c.to_digit(10).unwrap()).collect();
     let n = list.len();
 
 

@@ -1,7 +1,10 @@
 use std::io::BufRead;
 
 
-pub fn doit<B>(input: B) where B: BufRead {
+pub fn doit<B>(input: B)
+where
+    B: BufRead,
+{
     let mut instructions: Vec<i64> = input.lines().map(|l| l.unwrap().parse().unwrap()).collect();
     let mut offset: i64 = 0;
     let mut step = 0;

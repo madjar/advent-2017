@@ -3,8 +3,14 @@ use std::io::BufRead;
 use std::collections::HashSet;
 
 pub fn doit<B>(input: B)
-  where B : BufRead {
-    let res = input.lines().map(|l| l.unwrap()).filter(valid_passphrase).count();
+where
+    B: BufRead,
+{
+    let res = input
+        .lines()
+        .map(|l| l.unwrap())
+        .filter(valid_passphrase)
+        .count();
     println!("Day 4, part 2: {}", res)
 }
 
